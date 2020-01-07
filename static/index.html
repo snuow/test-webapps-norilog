@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>TestNorilog</title>
+</head>
+<body>
+<h1>乗りログ</h1>
+<form action="/save" method="post">
+    <table>
+        <tr>
+            <td>
+                <label for="start">出発</label></br>
+                <input id="start" type="text" name="start"/>
+            </td>
+            <td>
+                <label for="finish">到着</label></br>
+                <input id="finish" type="text" name="finish"/>
+            </td>
+            <td>
+                <br/>
+                <button>追加</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label for="memo">メモ</label>
+                <textarea id="memo" name="memo"></textarea>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<h2>乗り物一覧</h2>
+<table>
+    <tr>
+        <th>出発</th>
+        <th>到着</th>
+        <th>日時</th>
+        <th>メモ</th>
+    </tr>
+    <tr>
+        <td>都市A</td>
+        <td>沖の鳥島</td>
+        <td>2019-01-07</td>
+        <td>ActionA</td>
+    </tr>
+</table>
+</body>
+</html>
