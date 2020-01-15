@@ -1,4 +1,5 @@
 import json
+from flask import Flask,render_template
 
 DATA_FILE = 'norilog.json'
 
@@ -24,3 +25,14 @@ def save_data(start,finish,memo,create_at):
     })
 
     json.dump(database,open(DATA_FILE,mode="w",encoding="utf-8"),indent=4,ensure_ascii=False)
+
+
+def load_data():
+    try:
+        # jsonモジュールでデータベースファイルを開きます
+        database = json.load(open(DATA_FILE,mode="r",encoding="utf-8"))
+    except FileNotFoundError:
+        database = []
+
+    return database
+
