@@ -40,24 +40,14 @@
         <th>日時</th>
         <th>メモ</th>
     </tr>
+    {% for ride in rides %}
     <tr>
-        <td>都市A</td>
-        <td>沖の鳥島</td>
-        <td>2019-01-07</td>
-        <td>ActionA</td>
+        <td>{{ ride["start"] }}</td>
+        <td>{{ ride["end"]}}</td>
+        <td>{{ ride.created_at }}</td>
+        <td>{{ ride.memo }}</td>
     </tr>
-    <tr>
-        <td>あべの</td>
-        <td>沖の鳥島</td>
-        <td>2019-01-07</td>
-        <td>ActionA</td>
-    </tr>
-    <tr>
-        <td>あべの</td>
-        <td>沖の鳥島</td>
-        <td>2019-01-07</td>
-        <td>ActionA</td>
-    </tr>
+    {% endfor %}
 </table>
 </body>
 </html>

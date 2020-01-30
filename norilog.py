@@ -1,5 +1,6 @@
 import json
 from flask import Flask,render_template,redirect,request
+from datetime import datetime
 
 application = Flask(__name__)
 
@@ -41,7 +42,21 @@ def load_data():
 
 @application.route("/")
 def index():
-    return render_template("index.html")
+    rides = load_data()
+
+    return render_template("index.html",rides=rides)
+
+
+@application.route("/save",methods=["POST"])
+def save():
+    start = request.form.get("start")
+    finish = request.form.get("finish")
+    memo = request.form.get("memo")
+    created_at = datetime.now()
+
+    save_data(start,finish,memo,created_at)
+
+    return redirect("/")
 
 
 if __name__ == "__main__":
