@@ -1,5 +1,7 @@
 import json
-from flask import Flask,render_template
+from flask import Flask,render_template,redirect,request
+
+application = Flask(__name__)
 
 DATA_FILE = 'norilog.json'
 
@@ -35,4 +37,13 @@ def load_data():
         database = []
 
     return database
+
+
+@application.route("/")
+def index():
+    return render_template("index.html")
+
+
+if __name__ == "__main__":
+    application.run("127.0.0.1",8000,debug=True)
 
