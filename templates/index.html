@@ -43,9 +43,9 @@
     {% for ride in rides %}
     <tr>
         <td>{{ ride["start"] }}</td>
-        <td>{{ ride["end"]}}</td>
+        <td>{{ ride["finish"]}}</td>
         <td>{{ ride.created_at }}</td>
-        <td>{{ ride.memo }}</td>
+        <td>{{ ride.memo|nl2br }}</td>
     </tr>
     {% endfor %}
 </table>

@@ -1,5 +1,5 @@
 import json
-from flask import Flask,render_template,redirect,request
+from flask import Flask,render_template,redirect,request,Markup,escape
 from datetime import datetime
 
 application = Flask(__name__)
@@ -57,6 +57,12 @@ def save():
     save_data(start,finish,memo,created_at)
 
     return redirect("/")
+
+
+@application.template_filter("nl2br")
+def nl2br_filter(s):
+    """改行文字をbrタグに置き換えるテンプレートフィルタ"""
+    return escape(s).replace("\r","").replace("\n",Markup("<br>"))
 
 
 if __name__ == "__main__":
